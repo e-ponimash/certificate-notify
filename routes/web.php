@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::post('/new_message', 'MailCertificateController@store');
+Route::get('/', 'StatusController@index');
