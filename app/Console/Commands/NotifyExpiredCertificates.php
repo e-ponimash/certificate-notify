@@ -45,7 +45,7 @@ class NotifyExpiredCertificates extends Command
     {
         $this->info('Start certificate notify');
         $certificates = Certificate::whereNull('notified_at')
-            ->where('expired_at', '<=', Carbon::now()->addDays(env('NOTIFY_CERT_DAYS_BEFORE', 7)))->get();
+            ->where('expired_at', '<=', Carbon::today()->addDays(env('NOTIFY_CERT_DAYS_BEFORE', 7)))->get();
         $proceed = 0;
 
         $certificates->each(function($cert) use (&$proceed){

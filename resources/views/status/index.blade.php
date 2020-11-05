@@ -1,5 +1,15 @@
-
-    <table>
+@extends('layouts.app')
+@section('content')
+    <table class="table table-striped table-sm">
+        <thead>
+        <tr>
+            <th>MerchantId</th>
+            <th>Name</th>
+            <th>Legal name</th>
+            <th>Expired at</th>
+            <th>Notified at</th>
+        </tr>
+        </thead>
             @forelse($certificates as $certificate)
 
                     <tr>
@@ -19,6 +29,7 @@
                             {{$certificate->notified_at ? $certificate->notified_at->format('d.m.Y') : null}}
                         </td>
                     </tr>
+
             @empty
                 <tr>
                     <td>
@@ -28,4 +39,5 @@
             @endforelse
         </tr>
     </table>
-
+    {{$certificates->links()}}
+@endsection

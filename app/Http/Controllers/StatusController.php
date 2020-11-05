@@ -11,7 +11,7 @@ class StatusController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index(){
-        $certificates = Certificate::all();
+        $certificates = Certificate::paginate(env('COUNT_CERTIFICATES_ON_PAGE', 10));;
         return view('status.index', ['certificates' => $certificates]);
     }
 
