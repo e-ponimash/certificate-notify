@@ -26,7 +26,7 @@
                             {{$certificate->expired_at ? $certificate->expired_at->format('d.m.Y') : null}}
                         </td>
                         <td>
-                            {{$certificate->notified_at ? $certificate->notified_at->format('d.m.Y') : null}}
+                            {{$certificate->notified_at ? $certificate->notified_at->format('d.m.Y H:i') : null}}
                         </td>
                     </tr>
 
